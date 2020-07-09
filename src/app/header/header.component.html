@@ -1,0 +1,36 @@
+<!-- Grey with black text -->
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="navbar-brand" routerLink="/home">
+          <img id="home" src="assets/img/home.png">
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/paris">MES PARIS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">SOLDES: 15 PTS</a>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <button type="button"
+                class="p-4 btn btn-dark"
+                (click)="onShowProfil()">Mon profil
+        </button>
+      </li>
+      <li>
+        <button type="button"
+                class="p-4 btn btn-dark"
+                (click)="onSignOut()">Déconnexion
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+

@@ -1,0 +1,28 @@
+body {
+  background-color: #4D4B4B;
+  height: 90vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.card {
+  max-width: 400px;
+  box-shadow: 10px 10px 10px 0px #D715FC;
+  float: none;
+  margin: auto;
+  margin-top: 15%;
+  background-color: #383b3d;
+}
+
+.btnCardHome {
+  background-color: #24292d;
+  margin: auto;
+  width: 150px;
+  border: 1px solid #D715FC;
+}
+
+.card-title {
+  color: white;
+  font-weight: bold;
+  margin-left: 10px;
+}

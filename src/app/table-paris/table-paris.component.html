@@ -1,0 +1,29 @@
+<app-header></app-header>
+
+<div class="container">
+
+  <br>
+
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">GAME NAME</th>
+      <th scope="col">DATE & HOUR</th>
+      <th scope="col">TEAM 1</th>
+      <th scope="col">TEAM 2</th>
+      <th scope="col">TEAM 2</th>
+      <th scope="col">ACTION</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr app-product-row *ngFor="let product of products; let i = index"
+        [matchId]="product.id"
+        [matchName]="product.name"
+        [matchDate]="product.date"
+        [matchStatus]="product.status"
+        [equipeResult]="product.result"
+        [index]="i"></tr>
+    </tbody>
+  </table>
+
+</div>
