@@ -22,7 +22,7 @@ export class ProductRowComponent implements OnInit {
 
   nextStatus: string;
   editRoute: string;
-  games: any[] = [];
+  games: Game[];
 
   constructor(private matchesService: MatchesService, private gameService: GameService) {
   }
@@ -32,7 +32,8 @@ export class ProductRowComponent implements OnInit {
     this.editRoute = '/edit/product/' + this.matchId;
     this.gameService.getGames()
       .subscribe( data => {
-        this.games = data;
+        console.log(data.content);
+        this.games = data.content;
       });
     console.log(this.games);
   }
