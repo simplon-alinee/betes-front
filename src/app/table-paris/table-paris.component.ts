@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MatchesService} from '../services/matches/matches.service';
+import {Matches} from '../models/matches.model';
 
 @Component({
   selector: 'app-table-paris',
@@ -7,13 +8,22 @@ import {MatchesService} from '../services/matches/matches.service';
   styleUrls: ['./table-paris.component.css']
 })
 export class TableParisComponent implements OnInit {
-  matches: Array<object>;
+  matches: Matches[] = [];
 
-  constructor(private productsService: MatchesService) {
+  constructor(private matchesService: MatchesService) {
   }
 
   ngOnInit() {
-    this.matches = this.productsService.matches;
+    this.getAllMatches();
+    console.log(this.matches);
   }
+
+  getAllMatches() {
+    this.matchesService.getAllMatches()
+      .subscribe(matches => {
+        this.matches = matches.content;
+      });
+  }
+
 
 }

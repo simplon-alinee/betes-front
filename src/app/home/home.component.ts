@@ -8,13 +8,9 @@ import {MatchesService} from '../services/matches/matches.service';
 })
 export class HomeComponent implements OnInit {
 
-
-  matches: Array<object>;
-
-  constructor(private matchesService: MatchesService) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.matches = this.matchesService.matches;
   }
 }

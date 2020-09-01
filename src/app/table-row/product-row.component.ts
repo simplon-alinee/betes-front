@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MatchesService} from '../services/matches/matches.service';
 import {GameService} from '../services/game/game.service';
 import {Game} from '../models/game.model';
+import {Matches} from '../models/matches.model';
 
 // This lets me use jquery
 declare var $: any;
@@ -22,7 +23,8 @@ export class ProductRowComponent implements OnInit {
 
   nextStatus: string;
   editRoute: string;
-  games: Game[];
+  games: Game;
+  matches: Matches[] = [];
 
   constructor(private matchesService: MatchesService, private gameService: GameService) {
   }
@@ -30,12 +32,11 @@ export class ProductRowComponent implements OnInit {
   ngOnInit() {
     // this.defineNextStatus(this.productStatus);
     this.editRoute = '/edit/product/' + this.matchId;
-    this.gameService.getGames()
-      .subscribe( data => {
-        console.log(data.content);
-        this.games = data.content;
-      });
-    console.log(this.games);
+    console.log('pout');
+    this.getAllGames();
+    this.getAllMatches();
+
+    console.log(this.getAllGames());
   }
 
   showModal(): void {
@@ -80,6 +81,19 @@ export class ProductRowComponent implements OnInit {
     this.matchesService.deleteProduct(this.matchId);
   }
 
+  getAllGames() {
+    this.gameService.getGames()
+      .subscribe(games => {
+        this.games = games;
+      });
+  }
+
+  getAllMatches() {
+    this.matchesService.getAllMatches()
+      .subscribe(matches => {
+        this.matches = matches;
+      });
+  }
 
 
 }

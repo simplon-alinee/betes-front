@@ -17,9 +17,9 @@
     </thead>
     <tbody>
     <tr app-product-row *ngFor="let match of matches; let i = index"
-        [matchName]="match.name"
-        [matchDate]="match.date"
-        [matchStatus]="match.status"
+        [matchName]="match.game.name"
+        [matchDate]="match.dateMatch"
+        [matchStatus]="match.teamsParticipating[0]"
         [equipeResult]="match.result"
         [index]="i"></tr>
     </tbody>

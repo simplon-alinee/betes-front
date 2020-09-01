@@ -1,30 +1,27 @@
 import {Injectable} from '@angular/core';
-import {Match} from '../../models/equipe.model';
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {Matches} from '../../models/matches.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MatchesService {
 
-  matches: Array<any>;
+  matches: Matches[] = [];
 
-  constructor() {
+  private baseUrl = 'http://localhost:8080/api/';
 
-    this.matches = [
-      new Match(0, 'LEAGUE OF LEGENDS', '05/03/2020 - 12:16', 'IN PROGRESS', '--------'),
-      new Match(1, 'HOTS', '10/07/2020 - 12:16', 'FINISH', 'TEAM PATATE')
-    ];
+  constructor(private http: HttpClient) {
 
   }
 
-  /**
-   * Method for switch the status of all the products
-   * @param newStatus The new status to set
-   */
-  switchProductsStatus(newStatus: string) {
-    this.matches.map((product) => {
-      product.status = newStatus;
-    });
+  getAllMatches(): Observable<any> {
+    return this.http.get(`${this.baseUrl}` + 'matches/all?page=0');
+  }
+
+  public getMatchById(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}` + 'matches/' + id);
   }
 
   /**
@@ -33,7 +30,7 @@ export class MatchesService {
    * @param newStatus The new status to set
    */
   switchProductStatus(i: number, newStatus: string) {
-    this.matches[i].status = newStatus;
+   // this.matches[i].status = newStatus;
   }
 
   /**
@@ -41,12 +38,7 @@ export class MatchesService {
    * @param id The id of the product searched
    */
   getElementById(id: number) {
-    const match = this.matches.find(
-      (s) => {
-        return s.id === id;
-      }
-    );
-    return match;
+
   }
 
   /**
@@ -62,8 +54,8 @@ export class MatchesService {
       id = this.matches[this.matches.length - 1].id + 1;
     }
 
-    const newMatch = new Match(id, name, date, status, result);
-    this.matches.push(newMatch);
+ //   const newMatch = new Matches(id, name, date, status, result);
+  //  this.matches.push(newMatch);
   }
 
   /**
@@ -82,26 +74,7 @@ export class MatchesService {
 
   }
 
-  /**
-   * Method for edit an existing product from the array
-   * @param id The id of the product
-   * @param name The name of the product
-   * @param description The description of the product
-   * @param status The status of the product
-   */
-  editMatch(id: number, name: string, date: string, status: string, result: string) {
 
-    const cb = (i) => {
-      this.matches[i].name = name;
-      this.matches[i].date = date;
-      this.matches[i].result = result;
-      this.matches[i].status = status;
-      return;
-    };
-
-    this._loopMatches('id', id, cb);
-
-  }
 
   /**
    * Method for delete a product by his id
