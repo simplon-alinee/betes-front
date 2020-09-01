@@ -16,9 +16,11 @@ export class ProductRowComponent implements OnInit {
 
   @Input() matchId;
   @Input() matchName;
-  @Input() matchStatus;
+  @Input() team1;
+  @Input() team2;
   @Input() matchDate;
-  @Input() equipeResult;
+  @Input() teamResult;
+  @Input() bet;
   @Input() index;
 
   nextStatus: string;
@@ -32,7 +34,6 @@ export class ProductRowComponent implements OnInit {
   ngOnInit() {
     // this.defineNextStatus(this.productStatus);
     this.editRoute = '/edit/product/' + this.matchId;
-    console.log('pout');
     this.getAllGames();
     this.getAllMatches();
 
@@ -50,28 +51,6 @@ export class ProductRowComponent implements OnInit {
 
   hideModal(): void {
     document.getElementById('close-modal').click();
-  }
-
-  /**
-   * Method for define the next status for the button
-   * @param comparator The element to compare for select the next status
-   */
-  defineNextStatus(comparator: string) {
-    if (comparator === 'en stock') {
-      this.nextStatus = 'pas en stock';
-    } else {
-      this.nextStatus = 'en stock';
-    }
-  }
-
-  /**
-   * Method for update the status of the product
-   * @param i The index of the product
-   */
-  onSwitchStatus(i: number) {
-    this.matchesService.switchProductStatus(i, this.nextStatus);
-
-    this.defineNextStatus(this.nextStatus);
   }
 
   /**

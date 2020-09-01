@@ -44,7 +44,7 @@ export class AuthViewComponent implements OnInit {
       formValue.password
     )
       .then(() => {
-        this.router.navigate(['products']);
+        this.router.navigate(['home']);
       }, (err) => {
         this.errorMsg = err;
       });

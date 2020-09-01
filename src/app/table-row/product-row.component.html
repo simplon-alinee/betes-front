@@ -1,11 +1,11 @@
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="exampleModal" tabindex="90" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">BET</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -13,9 +13,9 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-6">
-            Team TOTO
+            {{team1}}
             <br>
-            Team TATA
+            {{team2}}
           </div>
           <div class="col-6">
             <input type="checkbox" aria-label="Checkbox for following text input">
@@ -34,18 +34,15 @@
 </div>
 <td>{{matchName}}</td>
 <td>{{matchDate}}</td>
-<td>{{matchStatus}}</td>
-<td>{{equipeResult}}</td>
+<td>{{team1}}</td>
+<td>{{team2}}</td>
+<td>{{bet}}</td>
+<td>{{teamResult}}</td>
 <td>
   <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary" (click)="showModal()">
     BET
   </button>
 
-  <button type="button"
-          class="btn btn-danger m-2"
-          (click)="onDeleteProduct()">
-    Supprimer
-  </button>
 
 </td>
 

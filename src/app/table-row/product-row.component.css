@@ -1,0 +1,6 @@
+.modal-dialog{
+  z-index: 999;
+}
+.modal-open {
+  overflow: auto;
+}

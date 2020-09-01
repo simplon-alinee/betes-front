@@ -15,7 +15,6 @@ export class TableParisComponent implements OnInit {
 
   ngOnInit() {
     this.getAllMatches();
-    console.log(this.matches);
   }
 
   getAllMatches() {
@@ -25,5 +24,12 @@ export class TableParisComponent implements OnInit {
       });
   }
 
+/*  setWinner() {
+    for (let i = 0; i < this.matches.length; i++) {
+      if (this.matches[i].winner === null) {
+        this.matches[i].winner = '----';
+      }
+    }
+  }*/
 
 }
