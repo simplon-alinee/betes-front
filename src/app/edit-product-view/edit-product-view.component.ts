@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ProductsService} from '../services/products/products.service';
+import {MatchesService} from '../services/matches/matches.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Product} from '../models/equipe.model';
+import {Match} from '../models/equipe.model';
 
 @Component({
   selector: 'app-edit-product-view',
@@ -13,15 +13,15 @@ export class EditProductViewComponent implements OnInit {
 
   editProductForm: FormGroup;
 
-  product: Product;
+  match: Match;
 
-  constructor(private productService: ProductsService, private router: Router,
+  constructor(private matchesService: MatchesService, private router: Router,
               private formBuilder: FormBuilder, private route: ActivatedRoute) { }
 
   ngOnInit() {
     const id = this.route.snapshot.params.id;
 
-    this.product = this.productService.getElementById(+id);
+    this.match = this.matchesService.getElementById(+id);
 
     this.initForm();
   }
@@ -31,8 +31,8 @@ export class EditProductViewComponent implements OnInit {
    */
   initForm() {
     this.editProductForm = this.formBuilder.group({
-      name: [this.product.name, Validators.required],
-      status: [this.product.status, Validators.required]
+      name: [this.match.name, Validators.required],
+      status: [this.match.status, Validators.required]
     });
   }
 
@@ -42,7 +42,7 @@ export class EditProductViewComponent implements OnInit {
   onSubmitEditProduct() {
     const formValue = this.editProductForm.value;
 
-    this.productService.editProduct(
+    this.matchesService.editMatch(
       formValue.name,
       formValue.description,
       formValue.result,

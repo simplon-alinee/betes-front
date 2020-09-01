@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ProductsService} from '../services/products/products.service';
+import {MatchesService} from '../services/matches/matches.service';
+import {GameService} from '../services/game/game.service';
+import {Game} from '../models/game.model';
 
 // This lets me use jquery
 declare var $: any;
@@ -20,14 +22,19 @@ export class ProductRowComponent implements OnInit {
 
   nextStatus: string;
   editRoute: string;
+  games: any[] = [];
 
-  constructor(private productsService: ProductsService) {
+  constructor(private matchesService: MatchesService, private gameService: GameService) {
   }
 
   ngOnInit() {
     // this.defineNextStatus(this.productStatus);
-
     this.editRoute = '/edit/product/' + this.matchId;
+    this.gameService.getGames()
+      .subscribe( data => {
+        this.games = data;
+      });
+    console.log(this.games);
   }
 
   showModal(): void {
@@ -60,7 +67,7 @@ export class ProductRowComponent implements OnInit {
    * @param i The index of the product
    */
   onSwitchStatus(i: number) {
-    this.productsService.switchProductStatus(i, this.nextStatus);
+    this.matchesService.switchProductStatus(i, this.nextStatus);
 
     this.defineNextStatus(this.nextStatus);
   }
@@ -69,7 +76,9 @@ export class ProductRowComponent implements OnInit {
    * Method called when the user click on the delete button
    */
   onDeleteProduct() {
-    this.productsService.deleteProduct(this.matchId);
+    this.matchesService.deleteProduct(this.matchId);
   }
+
+
 
 }

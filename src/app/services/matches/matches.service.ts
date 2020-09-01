@@ -1,18 +1,18 @@
-import { Injectable } from '@angular/core';
-import {Product} from '../../models/equipe.model';
+import {Injectable} from '@angular/core';
+import {Match} from '../../models/equipe.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsService {
+export class MatchesService {
 
-  products: Array<any>;
+  matches: Array<any>;
 
   constructor() {
 
-    this.products = [
-      new Product(0, 'LEAGUE OF LEGENDS', '05/03/2020 - 12:16', 'IN PROGRESS', '--------'),
-      new Product(1, 'HOTS', '10/07/2020 - 12:16', 'FINISH', 'TEAM PATATE')
+    this.matches = [
+      new Match(0, 'LEAGUE OF LEGENDS', '05/03/2020 - 12:16', 'IN PROGRESS', '--------'),
+      new Match(1, 'HOTS', '10/07/2020 - 12:16', 'FINISH', 'TEAM PATATE')
     ];
 
   }
@@ -22,7 +22,7 @@ export class ProductsService {
    * @param newStatus The new status to set
    */
   switchProductsStatus(newStatus: string) {
-    this.products.map((product) => {
+    this.matches.map((product) => {
       product.status = newStatus;
     });
   }
@@ -33,7 +33,7 @@ export class ProductsService {
    * @param newStatus The new status to set
    */
   switchProductStatus(i: number, newStatus: string) {
-    this.products[i].status = newStatus;
+    this.matches[i].status = newStatus;
   }
 
   /**
@@ -41,12 +41,12 @@ export class ProductsService {
    * @param id The id of the product searched
    */
   getElementById(id: number) {
-    const product = this.products.find(
+    const match = this.matches.find(
       (s) => {
         return s.id === id;
       }
     );
-    return product;
+    return match;
   }
 
   /**
@@ -55,15 +55,15 @@ export class ProductsService {
    * @param description The description of the product
    * @param status The status of the product
    */
-  addProduct(name: string, date: string, status: string, result: string) {
+  addMatch(name: string, date: string, status: string, result: string) {
     // Necessary, if we delete all the products, the add product throw an error because the array length is null
     let id = 0;
-    if (this.products.length > 0) {
-      id = this.products[this.products.length - 1].id + 1;
+    if (this.matches.length > 0) {
+      id = this.matches[this.matches.length - 1].id + 1;
     }
 
-    const newProduct = new Product(id, name, date, status, result);
-    this.products.push(newProduct);
+    const newMatch = new Match(id, name, date, status, result);
+    this.matches.push(newMatch);
   }
 
   /**
@@ -72,10 +72,10 @@ export class ProductsService {
    * @param valComp The val to compare
    * @param cb The callback to call when the condition is true
    */
-  _loopProducts(attrComp, valComp, cb) {
+  _loopMatches(attrComp, valComp, cb) {
 
-    for(let i = 0; i < this.products.length; i++) {
-      if(this.products[i][attrComp] === valComp) {
+    for (let i = 0; i < this.matches.length; i++) {
+      if (this.matches[i][attrComp] === valComp) {
         cb(i);
       }
     }
@@ -89,17 +89,17 @@ export class ProductsService {
    * @param description The description of the product
    * @param status The status of the product
    */
-  editProduct(id: number, name: string,  date: string, status: string, result: string) {
+  editMatch(id: number, name: string, date: string, status: string, result: string) {
 
     const cb = (i) => {
-      this.products[i].name = name;
-      this.products[i].date = date;
-      this.products[i].result = result;
-      this.products[i].status = status;
+      this.matches[i].name = name;
+      this.matches[i].date = date;
+      this.matches[i].result = result;
+      this.matches[i].status = status;
       return;
     };
 
-    this._loopProducts('id', id, cb);
+    this._loopMatches('id', id, cb);
 
   }
 
@@ -110,10 +110,10 @@ export class ProductsService {
   deleteProduct(id: number) {
 
     const cb = (i) => {
-      return this.products.splice(i, 1);
+      return this.matches.splice(i, 1);
     };
 
-    this._loopProducts('id', id, cb);
+    this._loopMatches('id', id, cb);
 
   }
 }

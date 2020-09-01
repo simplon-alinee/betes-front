@@ -11,17 +11,16 @@
       <th scope="col">DATE & HOUR</th>
       <th scope="col">TEAM 1</th>
       <th scope="col">TEAM 2</th>
-      <th scope="col">TEAM 2</th>
+      <th scope="col">RESULT</th>
       <th scope="col">ACTION</th>
     </tr>
     </thead>
     <tbody>
-    <tr app-product-row *ngFor="let product of products; let i = index"
-        [matchId]="product.id"
-        [matchName]="product.name"
-        [matchDate]="product.date"
-        [matchStatus]="product.status"
-        [equipeResult]="product.result"
+    <tr app-product-row *ngFor="let match of matches; let i = index"
+        [matchName]="match.name"
+        [matchDate]="match.date"
+        [matchStatus]="match.status"
+        [equipeResult]="match.result"
         [index]="i"></tr>
     </tbody>
   </table>

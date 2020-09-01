@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductsService} from '../services/products/products.service';
+import {MatchesService} from '../services/matches/matches.service';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ export class SingleProductViewComponent implements OnInit {
 
   product: any;
 
-  constructor(private productsService: ProductsService, private route: ActivatedRoute) { }
+  constructor(private productsService: MatchesService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     const id = this.route.snapshot.params.id;

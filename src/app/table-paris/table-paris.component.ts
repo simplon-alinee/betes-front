@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ProductsService} from '../services/products/products.service';
+import {MatchesService} from '../services/matches/matches.service';
 
 @Component({
   selector: 'app-table-paris',
@@ -7,13 +7,13 @@ import {ProductsService} from '../services/products/products.service';
   styleUrls: ['./table-paris.component.css']
 })
 export class TableParisComponent implements OnInit {
-  products: Array<object>;
+  matches: Array<object>;
 
-  constructor(private productsService: ProductsService) {
+  constructor(private productsService: MatchesService) {
   }
 
   ngOnInit() {
-    this.products = this.productsService.products;
+    this.matches = this.productsService.matches;
   }
 
 }

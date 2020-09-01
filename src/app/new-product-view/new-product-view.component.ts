@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {ProductsService} from '../services/products/products.service';
+import {MatchesService} from '../services/matches/matches.service';
 
 @Component({
   selector: 'app-new-product-view',
@@ -12,7 +12,7 @@ export class NewProductViewComponent implements OnInit {
 
   newProductForm: FormGroup;
 
-  constructor(private productService: ProductsService, private router: Router,
+  constructor(private productService: MatchesService, private router: Router,
               private formBuilder: FormBuilder) {
   }
 
@@ -37,7 +37,7 @@ export class NewProductViewComponent implements OnInit {
   onSubmitNewProduct() {
     const formValue = this.newProductForm.value;
 
-    this.productService.addProduct(
+    this.productService.addMatch(
       formValue.name,
       formValue.description,
       formValue.date,

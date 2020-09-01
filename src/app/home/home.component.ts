@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {ProductsService} from '../services/products/products.service';
+import {Component, OnInit} from '@angular/core';
+import {MatchesService} from '../services/matches/matches.service';
 
 @Component({
   selector: 'app-products-table',
@@ -8,27 +8,13 @@ import {ProductsService} from '../services/products/products.service';
 })
 export class HomeComponent implements OnInit {
 
-  nextStatus = 'en stock';
 
-  products: Array<object>;
+  matches: Array<object>;
 
-  constructor(private productsService: ProductsService) { }
-
-  ngOnInit() {
-    this.products = this.productsService.products;
-    console.log(this.products);
+  constructor(private matchesService: MatchesService) {
   }
 
-  /**
-   * Method called when user click on the switch button
-   */
-  onSwitchAllStatus() {
-    this.productsService.switchProductsStatus(this.nextStatus);
-
-    if (this.nextStatus === 'en stock') {
-      this.nextStatus = 'pas en stock';
-    } else {
-      this.nextStatus = 'en stock';
-    }
+  ngOnInit() {
+    this.matches = this.matchesService.matches;
   }
 }

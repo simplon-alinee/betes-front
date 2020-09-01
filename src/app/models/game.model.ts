@@ -1,14 +1,16 @@
 import {Bet} from './bet.model';
 import {Team} from './team.model';
+import {Matches} from './matches.model';
 
 export class Game {
   constructor(
     public id: number,
-    public game: Game,
-    public dateMatch: any,
-    public winner: Team,
+    public name: string,
+    public nameApiExt: string,
+    public logo: string,
     public idApiExt: number,
-    public listBet: Bet[],
-    public teamsParticipating: Team[]
-  ) {}
+    public matchEntityList: Matches[],
+    public teamList: Team[]
+  ) {
+  }
 }
