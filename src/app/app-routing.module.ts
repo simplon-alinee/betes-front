@@ -12,6 +12,7 @@ const routes: Routes = [
   {path: 'edit/user', canActivate: [AuthGuardService], component: ProfilViewComponent},
   {path: 'profil', canActivate: [AuthGuardService], component: ProfilViewComponent},
   {path: 'auth', component: AuthViewComponent},
+  {path: 'paris/game/:gameId', component: TableParisComponent},
   {path: 'paris', component: TableParisComponent},
   {path: '', canActivate: [AuthGuardService], component: HomeComponent},
   {path: 'not-found', component: ErrorViewComponent},

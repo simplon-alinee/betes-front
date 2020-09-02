@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-4"  *ngFor="let game of gameList">
       <div class="card">
-        <div class="card-image">
+        <div class="card-image" routerLink="/paris/game/{{game.id}}">
           <img class="responsive"  src="assets/img/{{game.nameApiExt}}.jpg">
         </div>
         <!--        <div>-->
