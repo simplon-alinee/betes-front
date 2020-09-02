@@ -23,6 +23,7 @@ export class ProductRowComponent implements OnInit {
   @Input() bet;
   @Input() index;
 
+  editUrl: string;
   nextStatus: string;
   editRoute: string;
   games: Game;
@@ -33,10 +34,9 @@ export class ProductRowComponent implements OnInit {
 
   ngOnInit() {
     // this.defineNextStatus(this.productStatus);
-    this.editRoute = '/edit/product/' + this.matchId;
     this.getAllGames();
     this.getAllMatches();
-
+    this.editUrl = '/game/edit/' + this.matchId;
     console.log(this.getAllGames());
   }
 
