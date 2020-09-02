@@ -4,13 +4,23 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
 }
-
+.content::-webkit-scrollbar {
+  display: none;
+}
+.content{
+  height: 90vh;
+  overflow: auto;
+  color: aliceblue;
+  padding-bottom: 5vh;
+  padding-left: 5vh;
+  padding-right: 5vh;
+  margin-bottom: 5%;
+}
 .card {
   max-width: 400px;
   box-shadow: 10px 10px 10px 0px #D715FC;
   float: none;
-  margin: auto;
-  margin-top: 15%;
+  margin: 7%;
   background-color: #383b3d;
 }
 
@@ -25,4 +35,9 @@ body {
   color: white;
   font-weight: bold;
   margin-left: 10px;
+  align-content: center;
+}
+.responsive {
+  width: 100%;
+  height: auto;
 }
