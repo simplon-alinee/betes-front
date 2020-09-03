@@ -1,1 +1,21 @@
-<p>new-bet works!</p>
+<app-header></app-header>
+<body>
+<div class="container">
+
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+
+      <input class="betForm" type="radio" name="team" value="{{match.teamsParticipating[0].id}}"
+             [(ngModel)]="betSket.betOnTeamId"> {{match.teamsParticipating[0].teamName}}
+      <br>
+      <input class="betForm" type="radio" name="team" value="{{match.teamsParticipating[1].id}}"
+             [(ngModel)]="betSket.betOnTeamId"> {{match.teamsParticipating[1].teamName}}
+    </div>
+
+  </form>
+
+  <button type="submit" (click)="onSubmit()" class="btn btn-primary mb-2 betForm">Bet !</button>
+
+</div>
+</body>

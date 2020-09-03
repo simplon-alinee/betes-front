@@ -10,7 +10,7 @@ export class Matches {
     public dateMatch: any,
     public winner: Team,
     public idApiExt: number,
-    public listBet: Bet[],
-    public teamsParticipating: Team[]
+    public teamsParticipating: Team[],
+    public listBet?: Bet[]
   ) {}
 }

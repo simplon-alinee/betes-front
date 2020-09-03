@@ -4,15 +4,13 @@
 
   <br>
 
-  <table class="table" *ngIf="matches !== null">
+  <table class="table table-striped" *ngIf="matches !== null">
     <thead class="thead-dark">
     <tr>
       <th scope="col">GAME NAME</th>
       <th scope="col">DATE & HOUR</th>
       <th scope="col">TEAM 1</th>
       <th scope="col">TEAM 2</th>
-      <th scope="col">BET</th>
-      <th scope="col">RESULT</th>
       <th scope="col">ACTION</th>
     </tr>
     </thead>
@@ -23,7 +21,6 @@
         [matchDate]="match.dateMatch"
         [team1]="match.teamsParticipating[0].teamName"
         [team2]="match.teamsParticipating[1].teamName"
-        [bet]="match.listBet[0]"
         [index]="i"></tr>
     </tbody>
   </table>

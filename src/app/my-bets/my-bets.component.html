@@ -1,0 +1,24 @@
+<app-header></app-header>
+
+<div class="container">
+  <br>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Game</th>
+      <th scope="col">Team</th>
+      <th scope="col">Date Bet</th>
+      <th scope="col">Winner</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let bet of bets">
+      <td>{{bet.betOnTeam.game.name}}</td>
+      <td>{{bet.betOnTeam.teamName}}</td>
+      <td>{{bet.dateBet}}</td>
+      <td>{{bet.matchEntity.winner}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

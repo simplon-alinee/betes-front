@@ -22,6 +22,7 @@ export class ProductRowComponent implements OnInit {
   @Input() teamResult;
   @Input() bet;
   @Input() index;
+  @Input() indexBet;
 
   editUrl: string;
   nextStatus: string;
@@ -37,7 +38,7 @@ export class ProductRowComponent implements OnInit {
     this.getAllGames();
     this.getAllMatches();
     this.editUrl = '/game/edit/' + this.matchId;
-    console.log(this.getAllGames());
+    console.log(this.indexBet);
   }
 
   showModal(): void {
@@ -51,13 +52,6 @@ export class ProductRowComponent implements OnInit {
 
   hideModal(): void {
     document.getElementById('close-modal').click();
-  }
-
-  /**
-   * Method called when the user click on the delete button
-   */
-  onDeleteProduct() {
-    this.matchesService.deleteProduct(this.matchId);
   }
 
   getAllGames() {

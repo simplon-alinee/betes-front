@@ -6,7 +6,7 @@ export class Bet {
   constructor(
     public id: number,
     public user: User,
-    public matches: Matches,
+    public matchEntity: Matches,
     public betOnTeam: Team,
     public dateBet: any,
     public resultBet: boolean,

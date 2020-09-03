@@ -13,7 +13,7 @@ import {AuthService} from './services/auth/auth.service';
 import {AuthGuardService} from './services/auth-guard/auth-guard.service';
 import {AppRoutingModule} from './app-routing.module';
 import { ProfilViewComponent } from './profil-view/profil-view.component';;
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TableParisComponent } from './table-paris/table-paris.component';
 import { FooterComponent } from './footer/footer.component';
 import {BetService} from './services/bet/bet.service';
@@ -22,6 +22,7 @@ import {TeamService} from './services/team/team.service';
 import {UserService} from './services/user/user.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { NewBetComponent } from './new-bet/new-bet.component';
+import { MyBetsComponent } from './my-bets/my-bets.component';
 
 @NgModule({
   declarations: [
@@ -34,13 +35,15 @@ import { NewBetComponent } from './new-bet/new-bet.component';
     ProfilViewComponent,
     TableParisComponent,
     FooterComponent,
-    NewBetComponent
+    NewBetComponent,
+    MyBetsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     MatchesService,

@@ -4,3 +4,14 @@
 .modal-open {
   overflow: auto;
 }
+.btn-primary {
+  color: #fff;
+  background-color: rebeccapurple;
+  border-color: rebeccapurple;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: blueviolet;
+  border-color: blueviolet;
+}
